@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stefano mirti</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #1a1c20;
+      overflow: hidden;
+    }
+
+    #sky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      cursor: pointer;
+      transition: opacity 0.8s ease;
+    }
+
+    #sky.nascosta {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #data {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 1;
+      font-family: 'EB Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #f0ede6;
+    }
+
+    #frase {
+      position: fixed;
+      bottom: 3.5rem;
+      left: 2rem;
+      z-index: 1;
+      font-family: 'EB Garamond', serif;
+      font-size: 22px;
+      line-height: 1.6;
+      color: #f0ede6;
+      max-width: 480px;
+    }
+
+    #bottone {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 2rem;
+      z-index: 1;
+      font-family: 'EB Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #f0ede6;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(240, 237, 230, 0.4);
+    }
+
+    #bottone:hover {
+      text-decoration-color: #f0ede6;
+    }
+
+  </style>
+</head>
+<body>
+
+  <img id="sky" alt="">
+
+  <div id="data"></div>
+  <div id="frase"></div>
+  <a id="bottone" href="index.html">go</a>
+
+  <script>
+    const TOTAL_PHOTOS = 9;
+
+    document.getElementById('sky').addEventListener('click', function() {
+      this.classList.toggle('nascosta');
+    });
+
+    const oggi = new Date();
+    const opzioni = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('data').textContent =
+      oggi.toLocaleDateString('it-IT', opzioni);
+
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function pad(n) {
+      return String(n).padStart(3, '0');
+    }
+
+    const idx = randomInt(1, TOTAL_PHOTOS);
+    document.getElementById('sky').src = `foto/sky_${pad(idx)}.jpg`;
+
+    fetch('frasi.txt')
+      .then(r => r.text())
+      .then(testo => {
+        const frasi = testo
+          .split('\n')
+          .map(f => f.trim())
+          .filter(f => f.length > 0);
+        if (frasi.length === 0) return;
+        const frase = frasi[randomInt(0, frasi.length - 1)];
+        document.getElementById('frase').textContent = frase;
+      })
+      .catch(() => {});
+  </script>
+
+</body>
+</html>
