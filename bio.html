@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stefano mirti</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #f0ede6;
+      --muted: #a09d96;
+      --link: #f0ede6;
+    }
+
+    html, body {
+      background: #1a1c20;
+      color: var(--ink);
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    #punto {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 2;
+      width: 20px;
+      height: 20px;
+      background: #f0ede6;
+      border-radius: 50%;
+      display: block;
+      opacity: 0.7;
+    }
+
+    #punto:hover {
+      opacity: 1;
+    }
+
+    main {
+      position: relative;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    #lang-toggle {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    #lang-toggle button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'EB Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0;
+    }
+
+    #lang-toggle button.active {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .content { display: none; }
+    .content.visible { display: block; }
+
+    p {
+      margin-bottom: 1.4rem;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--muted);
+    }
+
+    a:hover {
+      text-decoration-color: var(--ink);
+    }
+
+    .separator {
+      color: var(--muted);
+      margin: 2rem 0;
+      letter-spacing: 0.2em;
+    }
+
+    .closing {
+      color: var(--muted);
+      margin-top: 2.5rem;
+    }
+
+    footer {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 2rem 2rem;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <a id="punto" href="index.html"></a>
+
+  <main>
+
+    <div id="lang-toggle">
+      <button id="btn-ita" class="active" onclick="setLang('ita')">ita</button>
+      <button id="btn-eng" onclick="setLang('eng')">eng</button>
+    </div>
+
+    <div id="content-ita" class="content visible">
+
+      <p>mi chiamo stefano mirti, amo fare cose molte e diverse, questa è la mia pagina web.</p>
+
+      <p class="separator">···</p>
+
+      <p><a href="https://letterina.substack.com/">letterine</a> è la newsletter quotidiana.<br>
+      <a href="https://www.instagram.com/mimi.calendario/">mimi</a> è il suo fisico calendario.<br>
+      poi pranzi, cene, picnic: <a href="https://drive.google.com/file/d/1VYcHtDaXLAWY7wUTwfx9xi0A1ZiJhLmo/view?usp=sharing">very social</a>!</p>
+
+      <p><a href="http://www.postmediabooks.it/2023/manualetto/9798865866268.htm">il manualetto</a> è un libro con alessandro mininno, uscito l'anno scorso.</p>
+
+      <p><a href="https://www.kaleidosgames.com/moodboard-gioco/">moodboard</a> è un gioco di carte, fatto assieme a spartaco albertarelli.<br>
+      <a href="https://paginamastro.it/in-ordine-sparso/">in ordine sparso</a> è la rivista, monografica, tipografica.<br>
+      <a href="https://www.adidesignmuseum.org/mostre/mostre-temporanee/tools-il-saper-fare-a-regola-d-arte/">tools</a> era una mostra speciale, all'adi design museum.</p>
+
+      <p><a href="https://archividaffetto.it/">archivi d'affetto</a> è un progetto molto bello, curato assieme a maurizio cilli, al circolo del design di torino.</p>
+
+      <p><a href="https://www.instagram.com/p/DMiTg0ONA5L/">qui</a> è la casa che sto costruendo assieme a rachaporn choochuey,
+      nei monti tra chiang mai e la birmania:
+      <a href="https://www.instagram.com/p/DFAEnnQvBgw/">di giorno</a>,
+      <a href="https://www.instagram.com/p/DFAHHSBPyUY/?img_index=1">di notte</a>,
+      <a href="https://www.instagram.com/p/DAvy4yphi-6/">il cantiere</a>,
+      la <a href="https://www.instagram.com/p/DBePQIjsLww/">festa d'inaugurazione</a>.</p>
+
+      <p><a href="http://www.idlabstudio.it/">idlab</a> è lo studio.</p>
+
+      <p class="separator">···</p>
+
+      <p>altre cose interessanti?</p>
+
+      <p><a href="http://www.design1o1.net/">design 1o1</a> è la community.<br>
+      <a href="https://www.bottomupfestival.it/">bottom up</a> è il festival dell'architettura curato assieme a maurizio cilli, a torino.<br>
+      <a href="https://www.elledecor.com/it/design/a21097324/mostra-triennale-milano-999-domande/">999</a> è stata la grande mostra alla triennale di milano, qualche anno fa.</p>
+
+      <p>negli ultimi mesi ho tenuto diversi workshop dove abbiamo lavorato con l'ia:<br>
+      un progetto per una <a href="https://www.instagram.com/biblio_tech_to">biblioteca</a>,
+      un <a href="https://sites.google.com/idlabstudio.it/idlab-ai-unit/home-page/hackathon-abadir?authuser=0">gioco da tavolo</a>,
+      un <a href="https://sites.google.com/idlabstudio.it/idlab-ai-unit/home-page/how-to-make-a-visual-gamebook-in-the-age-of-ai?authuser=0">libro game</a>.</p>
+
+      <p class="separator">···</p>
+
+      <p>mi potete trovare su <a href="https://www.instagram.com/stefi_idlab/">instagram</a>.<br>
+      o anche (più di rado) su <a href="https://www.facebook.com/stefi.blueberries">facebook</a>
+      e su <a href="https://twitter.com/stefi_idlab">x</a>.</p>
+
+      <p class="separator">···</p>
+
+      <p>tutto questo non è abbastanza? ne volete ancora?</p>
+
+      <p>qui una bella <a href="https://zero.eu/en/persone/stefano-mirti-intervista/">intervista</a> di qualche anno fa.<br>
+      qui un breve <a href="https://www.youtube.com/watch?v=5Dd5S5tgiFw">videoclip</a> su youtube (in inglese).<br>
+      qui la mia <a href="https://www.linkedin.com/in/stefano-mirti-a3124651/">pagina</a> su linkedin.</p>
+
+      <p class="separator">···</p>
+
+      <p>ancora?</p>
+
+      <p class="closing">scrivete a: <a href="mailto:stefano.mirti@gmail.com">stefano.mirti@gmail.com</a><br><br>:-)</p>
+
+    </div>
+
+    <div id="content-eng" class="content">
+
+      <p>hello, my name is stefano mirti. i like to do lots of different things. this is my website.</p>
+
+      <p class="separator">···</p>
+
+      <p><a href="https://letterina.substack.com/">letterine</a> is my daily newsletter (in italian).<br>
+      <a href="https://www.instagram.com/mimi.calendario/">mimi</a> is its paper calendar.<br>
+      dinners, picnics, a lot of excuses <a href="https://drive.google.com/file/d/1VYcHtDaXLAWY7wUTwfx9xi0A1ZiJhLmo/view?usp=sharing">to meet</a>!</p>
+
+      <p><a href="http://www.postmediabooks.it/2023/manualetto/9798865866268.htm">il manualetto</a> is a book written with alessandro mininno (in italian).</p>
+
+      <p><a href="https://www.kaleidosgames.com/en/moodboard-eng/">moodboard</a> is a card game made with spartaco albertarelli.<br>
+      <a href="https://paginamastro.it/in-ordine-sparso/">in ordine sparso</a> is a magazine, monographic, all in letterpress.<br>
+      <a href="https://www.adidesignmuseum.org/mostre/mostre-temporanee/tools-il-saper-fare-a-regola-d-arte/">tools</a> was a special exhibition at adi design museum, milan.</p>
+
+      <p><a href="https://archividaffetto.it/">archivi d'affetto</a> is a nice project with maurizio cilli, at circolo del design, torino.</p>
+
+      <p><a href="https://www.instagram.com/p/DMiTg0ONA5L/">this</a> is the house i am building with rachaporn choochuey,
+      in the mountains between chiang mai and the burmese border:
+      <a href="https://www.instagram.com/p/DFAEnnQvBgw/">daytime</a>,
+      <a href="https://www.instagram.com/p/DFAHHSBPyUY/?img_index=1">nighttime</a>,
+      the <a href="https://www.instagram.com/p/DAvy4yphi-6/">building site</a>,
+      the opening <a href="https://www.instagram.com/p/DBePQIjsLww/">party</a>.</p>
+
+      <p><a href="https://www.idlabstudio.it/en">idlab</a> is the practice.</p>
+
+      <p class="separator">···</p>
+
+      <p>more stuff?</p>
+
+      <p><a href="http://www.design1o1.net/">design 1o1</a> is the community.<br>
+      <a href="https://www.bottomupfestival.it/bottom-up-the-architecture-festival/">bottom up</a> is the architecture festival.<br>
+      <a href="https://www.elledecor.com/it/design/a21097324/mostra-triennale-milano-999-domande/">999</a> was the big show at milan's triennale.</p>
+
+      <p>recently i ran several workshops working with ai:<br>
+      a project for a <a href="https://www.instagram.com/biblio_tech_to">library</a>,
+      a <a href="https://sites.google.com/idlabstudio.it/idlab-ai-unit/home-page/hackathon-abadir?authuser=0">board game</a>,
+      a <a href="https://sites.google.com/idlabstudio.it/idlab-ai-unit/home-page/how-to-make-a-visual-gamebook-in-the-age-of-ai?authuser=0">gamebook</a>.</p>
+
+      <p class="separator">···</p>
+
+      <p>you can find me on <a href="https://www.instagram.com/stefi_idlab/">instagram</a>.<br>
+      less frequently on <a href="https://www.facebook.com/stefi.blueberries">facebook</a>
+      and <a href="https://twitter.com/stefi_idlab">x</a>.</p>
+
+      <p class="separator">···</p>
+
+      <p>not enough? do you want to know more?</p>
+
+      <p>here a short <a href="https://www.youtube.com/watch?v=5Dd5S5tgiFw">videoclip</a> on youtube.<br>
+      here my <a href="https://www.linkedin.com/in/stefano-mirti-a3124651/">page</a> on linkedin.</p>
+
+      <p class="separator">···</p>
+
+      <p>still not enough?</p>
+
+      <p class="closing">please write to: <a href="mailto:stefano.mirti@gmail.com">stefano.mirti@gmail.com</a><br><br>:-)</p>
+
+    </div>
+
+  </main>
+
+  <footer id="footer-date"></footer>
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('content-ita').classList.toggle('visible', lang === 'ita');
+      document.getElementById('content-eng').classList.toggle('visible', lang === 'eng');
+      document.getElementById('btn-ita').classList.toggle('active', lang === 'ita');
+      document.getElementById('btn-eng').classList.toggle('active', lang === 'eng');
+      document.documentElement.lang = lang === 'ita' ? 'it' : 'en';
+    }
+
+    const oggi = new Date();
+    const opzioni = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('footer-date').textContent =
+      oggi.toLocaleDateString('it-IT', opzioni);
+  </script>
+
+</body>
+</html>
